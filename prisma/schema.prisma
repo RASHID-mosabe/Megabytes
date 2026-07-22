@@ -1,0 +1,213 @@
+// This is your Prisma schema file, designed for PostgreSQL database production deployment
+// You can use this file directly when deploying to a PostgreSQL instance
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id           String   @id @default(uuid())
+  email        String   @unique
+  passwordHash String
+  role         String   // "Super Admin" | "Admin" | "Editor"
+  name         String
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model Hero {
+  id             String   @id @default("hero-singleton")
+  bgImage        String
+  pizzaImage     String
+  titleLine1     String
+  titleLine2     String
+  titleLine3     String
+  description    String
+  ratingValue    String
+  ratingReviews  String
+  buttonText     String
+  buttonLink     String
+  overlayOpacity Int      @default(40)
+  alignment      String   @default("left")
+  isPublished    Boolean  @default(true)
+  updatedAt      DateTime @updatedAt
+}
+
+model Navbar {
+  id             String   @id @default("navbar-singleton")
+  logoText       String
+  logoColor      String
+  logoSize       String   @default("lg")
+  sticky         Boolean  @default(true)
+  transparent    Boolean  @default(false)
+  ctaText        String
+  ctaLink        String
+  navLinks       Json     // Array of links { name, id, href }
+  updatedAt      DateTime @updatedAt
+}
+
+model About {
+  id              String   @id @default("about-singleton")
+  title           String
+  subtitle        String
+  paragraph1      String
+  paragraph2      String
+  stat1Value      String
+  stat1Label      String
+  stat2Value      String
+  stat2Label      String
+  stat3Value      String
+  stat3Label      String
+  image           String
+  badge           String
+  cardTitle       String
+  cardDescription String
+  updatedAt       DateTime @updatedAt
+}
+
+model Feature {
+  id          String   @id @default(uuid())
+  title       String
+  description String
+  iconName    String
+  displayOrder Int     @default(0)
+  isVisible   Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model MenuCategory {
+  id           String     @id @default(uuid())
+  name         String     @unique
+  displayOrder Int        @default(0)
+  isVisible    Boolean    @default(true)
+  items        MenuItem[]
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @updatedAt
+}
+
+model MenuItem {
+  id           String       @id @default(uuid())
+  name         String
+  description  String
+  priceMin     Float
+  priceMax     Float
+  prices       Json         // Prices per size { Small, Medium, Large }
+  image        String
+  categoryId   String
+  category     MenuCategory @relation(fields: [categoryId], references: [id])
+  ingredients  String[]
+  tags         String[]
+  badge        String?
+  calories     Int?
+  isFeatured   Boolean      @default(false)
+  isBestSeller Boolean      @default(false)
+  displayOrder Int          @default(0)
+  isVisible    Boolean      @default(true)
+  createdAt    DateTime     @default(now())
+  updatedAt    DateTime     @updatedAt
+}
+
+model InstagramPost {
+  id        String   @id @default(uuid())
+  imageUrl  String
+  likes     Int      @default(0)
+  comments  Int      @default(0)
+  caption   String
+  url       String
+  isVisible Boolean  @default(true)
+  createdAt DateTime @default(now())
+}
+
+model Contact {
+  id             String   @id @default("contact-singleton")
+  address        String
+  phone          String
+  email          String
+  website        String
+  hoursWeekdays  String
+  hoursWeekends  String
+  whatsapp       String?
+  mapsUrl        String?
+  updatedAt      DateTime @updatedAt
+}
+
+model Footer {
+  id          String   @id @default("footer-singleton")
+  logoText    String
+  description String
+  copyright   String
+  updatedAt   DateTime @updatedAt
+}
+
+model Reservation {
+  id          String   @id @default(uuid())
+  name        String
+  email       String
+  phone       String
+  date        String
+  time        String
+  guests      Int
+  status      String   @default("Pending") // "Pending" | "Confirmed" | "Cancelled"
+  extraNotes  String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Event {
+  id          String   @id @default(uuid())
+  title       String
+  date        String
+  description String
+  image       String
+  price       String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Testimonial {
+  id        String   @id @default(uuid())
+  name      String
+  role      String
+  comment   String
+  rating    Int      @default(5)
+  avatar    String
+  createdAt DateTime @default(now())
+}
+
+model Settings {
+  id                 String   @id @default("settings-singleton")
+  siteName           String   @default("Mega Bytes Restaurant")
+  currency           String   @default("KSh")
+  taxRate            Float    @default(16)
+  enableReservations Boolean  @default(true)
+  updatedAt          DateTime @updatedAt
+}
+
+model SEO {
+  id              String   @id @default("seo-singleton")
+  metaTitle       String
+  metaDescription String
+  metaKeywords    String
+  updatedAt       DateTime @updatedAt
+}
+
+model Media {
+  id        String   @id @default(uuid())
+  filename  String
+  url       String
+  size      String
+  createdAt DateTime @default(now())
+}
+
+model Analytics {
+  id        String   @id @default(uuid())
+  pageViews Int      @default(0)
+  sessions  Int      @default(0)
+  date      String   @unique
+}
