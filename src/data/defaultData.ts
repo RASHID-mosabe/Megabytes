@@ -1,0 +1,340 @@
+import { MenuItem, ChooseFeature, InstagramPost } from '../types';
+import {
+  HeroData,
+  NavbarData,
+  AboutData,
+  ContactData,
+  FooterData,
+  MenuCategory,
+  RestaurantEvent,
+  Testimonial,
+  SystemSettings,
+  SEOSettings,
+  UserProfile
+} from '../context/WebsiteDataContext';
+
+export const defaultUsers: UserProfile[] = [
+  {
+    id: "u1",
+    email: "admin@megabytes.com",
+    role: "Super Admin",
+    name: "Super Admin"
+  },
+  {
+    id: "u2",
+    email: "editor@megabytes.com",
+    role: "Editor",
+    name: "Editor John"
+  }
+];
+
+export const defaultHeroData: HeroData = {
+  bgImage: "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&q=80&w=1400",
+  pizzaImage: "https://images.unsplash.com/photo-1626132647523-66f5bf380027?w=1000&auto=format&fit=crop&q=80",
+  titleLine1: "PREMIUM",
+  titleLine2: "CULINARY",
+  titleLine3: "EXPERIENCE",
+  description: "Indulge in artisanal Swahili, Indian, and Chinese dishes crafted with fresh local ingredients, exotic spices, and world-class culinary expertise in Kitale.",
+  ratingValue: "4.9 Rating",
+  ratingReviews: "2.4k+ Reviews",
+  buttonText: "EXPLORE MENU",
+  buttonLink: "#menu",
+  overlayOpacity: 40,
+  alignment: "left",
+  isPublished: true
+};
+
+export const defaultNavbarData: NavbarData = {
+  logoText: "MEGA BYTES.",
+  logoColor: "#C4430E",
+  logoSize: "lg",
+  logoType: "text",
+  logoImage: "",
+  sticky: true,
+  transparent: false,
+  ctaText: "Order Now",
+  ctaLink: "#menu",
+  navLinks: [
+    { name: "Home", id: "home", href: "#home" },
+    { name: "Menu", id: "menu", href: "#menu" },
+    { name: "About Us", id: "about", href: "#features" },
+    { name: "Contact", id: "contact", href: "#footer" }
+  ]
+};
+
+export const defaultAboutData: AboutData = {
+  title: "OUR CULINARY JOURNEY",
+  subtitle: "ESTABLISHED 2018",
+  paragraph1: "At Mega Bytes Restaurant, we believe that food is a celebration of heritage, family, and passion. Nestled in the heart of Kitale, our restaurant offers a culinary gateway connecting three distinct culinary worlds: traditional Swahili specialties, sizzled Chinese delicacies, and deeply aromatic Indian spices.",
+  paragraph2: "Our master chefs hand-select fresh local produce and combine them with authentic imported spices to deliver rich flavor profiles that have won the hearts of the Trans-Nzoia community. Whether you are enjoying a peaceful family lunch, celebrating with friends, or ordering delivery to your home, we are dedicated to providing impeccable quality and attentive hospitality.",
+  stat1Value: "50+",
+  stat1Label: "Gourmet Dishes",
+  stat2Value: "8+",
+  stat2Label: "Master Chefs",
+  stat3Value: "15k+",
+  stat3Label: "Happy Diners",
+  image: "https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&q=80&w=600",
+  badge: "Dine in Serenity",
+  cardTitle: "THE PREMIUM KITALE STANDARD",
+  cardDescription: "Cozy wood accents, modern layout, and ambient warm lighting."
+};
+
+export const defaultChooseFeatures: ChooseFeature[] = [
+  {
+    id: "feat-1",
+    title: "Serene Atmosphere",
+    description: "Catering to different dining preferences with beautifully designed indoor & outdoor garden seating options in Kitale.",
+    iconName: "Sprout"
+  },
+  {
+    id: "feat-2",
+    title: "Authentic Fusion Culinary",
+    description: "An exceptional diverse menu featuring fresh Swahili staples, classic North Indian curries, and Indo-Chinese favorites.",
+    iconName: "Sparkles"
+  },
+  {
+    id: "feat-3",
+    title: "Attentive & Serene Service",
+    description: "Renowned among locals and visitors alike for warm hospitality, cozy table setups, and exceptionally friendly staff.",
+    iconName: "Truck"
+  }
+];
+
+export const defaultMenuCategories: MenuCategory[] = [
+  { id: "cat-1", name: "Sizzlers", displayOrder: 1, isVisible: true },
+  { id: "cat-2", name: "Swahili", displayOrder: 2, isVisible: true },
+  { id: "cat-3", name: "Indian", displayOrder: 3, isVisible: true },
+  { id: "cat-4", name: "Chinese", displayOrder: 4, isVisible: true },
+  { id: "cat-5", name: "Sides", displayOrder: 5, isVisible: true }
+];
+
+export const defaultMenuItems: MenuItem[] = [
+  {
+    id: "sz1",
+    name: "Mega Chicken Sizzler",
+    description: "Our standout signature dish: succulent grilled chicken breast marinated in exotic spices, served sizzling hot with roasted veggies, seasoned chips, and our house-secret sizzler glaze.",
+    priceMin: 1200,
+    priceMax: 1800,
+    prices: { Small: 1200, Medium: 1500, Large: 1800 },
+    image: "https://images.unsplash.com/photo-1626132647523-66f5bf380027?w=800&auto=format&fit=crop&q=80",
+    category: "Sizzlers",
+    ingredients: ["Spiced Grilled Chicken", "Sizzling Onions & Peppers", "House Glaze", "Crispy Potato Wedges", "Fresh Herbs"],
+    tags: ["Best Seller", "Signature", "Sizzling"],
+    badge: "Must Order",
+    calories: 780
+  },
+  {
+    id: "sz2",
+    name: "Garden Vegetable Sizzler",
+    description: "A steaming sizzler plate packed with grilled paneer, crispy garden broccoli, bell peppers, carrots, and mushrooms tossed in chef’s signature aromatic glaze.",
+    priceMin: 950,
+    priceMax: 1450,
+    prices: { Small: 950, Medium: 1200, Large: 1450 },
+    image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=800&auto=format&fit=crop&q=80",
+    category: "Sizzlers",
+    ingredients: ["Grilled Paneer", "Fresh Broccoli", "Assorted Bell Peppers", "Exotic Mushrooms", "Garlic Glaze"],
+    tags: ["Vegetarian", "Healthy", "Steaming"],
+    badge: "Popular",
+    calories: 540
+  },
+  {
+    id: "sw1",
+    name: "Swahili Beef Pilau",
+    description: "Fragrant, slow-simmered basmati rice infused with traditional Swahili spices, served with tender beef cubes and a side of fresh Kachumbari salad.",
+    priceMin: 650,
+    priceMax: 950,
+    prices: { Small: 650, Medium: 800, Large: 950 },
+    image: "https://images.unsplash.com/photo-1567153051010-b9894e77242c?w=800&auto=format&fit=crop&q=80",
+    category: "Swahili",
+    ingredients: ["Aromatic Pilau Rice", "Marinated Beef", "Cardamom & Cloves", "Kachumbari (Tomato & Onion)", "Chili twist"],
+    tags: ["Locals Choice", "Authentic"],
+    badge: "Swahili Heritage",
+    calories: 650
+  },
+  {
+    id: "sw2",
+    name: "Samaki wa Kupaka",
+    description: "Local fresh lake fish char-grilled to absolute perfection and coated with a rich, creamy Swahili coconut-tamarind sauce.",
+    priceMin: 850,
+    priceMax: 1250,
+    prices: { Small: 850, Medium: 1050, Large: 1250 },
+    image: "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=800&auto=format&fit=crop&q=80",
+    category: "Swahili",
+    ingredients: ["Grilled Tilapia Fish", "Creamy Coconut Milk", "Tamarind Paste", "Ginger-Garlic Crush", "Fresh Lime"],
+    tags: ["Seafood", "Rich Curry"],
+    badge: "Chef Special",
+    calories: 590
+  },
+  {
+    id: "in1",
+    name: "Creamy Palak Paneer",
+    description: "Often cited as Kitale’s favorite vegetarian delight. Silky, spiced spinach curry studded with cubes of fresh pan-seared cottage cheese.",
+    priceMin: 750,
+    priceMax: 1150,
+    prices: { Small: 750, Medium: 950, Large: 1150 },
+    image: "https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=800&auto=format&fit=crop&q=80",
+    category: "Indian",
+    ingredients: ["Fresh Spinach Puree", "Paneer (Cottage Cheese)", "Garam Masala", "Fresh Cream", "Ginger & Garlic"],
+    tags: ["Vegetarian", "Highly Rated"],
+    badge: "Kitale Favorite",
+    calories: 460
+  },
+  {
+    id: "in2",
+    name: "Mouthwatering Butter Chicken",
+    description: "Juicy tandoori chicken chunks cooked in a rich, velvety tomato butter gravy, infused with fenugreek leaves and cream.",
+    priceMin: 850,
+    priceMax: 1300,
+    prices: { Small: 850, Medium: 1100, Large: 1300 },
+    image: "https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?w=800&auto=format&fit=crop&q=80",
+    category: "Indian",
+    ingredients: ["Tandoori Spiced Chicken", "Velvety Tomato Gravy", "Pure Butter & Cream", "Kasuri Methi", "Almond Paste"],
+    tags: ["Rich", "Mild Spicy"],
+    badge: "Best Seller",
+    calories: 680
+  },
+  {
+    id: "ch1",
+    name: "Fiery Chili Chicken",
+    description: "A go-to for Indo-Chinese cravings. Crispy chicken chunks tossed in a dark, sweet, spicy, and tangy soy-chili reduction with spring onions.",
+    priceMin: 800,
+    priceMax: 1200,
+    prices: { Small: 800, Medium: 1000, Large: 1200 },
+    image: "https://images.unsplash.com/photo-1525755662778-989d0524087e?w=800&auto=format&fit=crop&q=80",
+    category: "Chinese",
+    ingredients: ["Wok-Fried Chicken Chunks", "Tangy Soy-Chili Glaze", "Green Peppers", "Garlic & Ginger", "Fresh Scallions"],
+    tags: ["Indo-Chinese", "Spicy", "Tangy"],
+    badge: "Popular",
+    calories: 510
+  },
+  {
+    id: "sd1",
+    name: "Mouth-Watering Garlic Chips",
+    description: "Our legendary side dish. Golden, crispy hand-cut chips tossed in a savory garlic herb butter infusion, sprinkled with fresh cilantro.",
+    priceMin: 350,
+    priceMax: 550,
+    prices: { Small: 350, Medium: 450, Large: 550 },
+    image: "https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=800&auto=format&fit=crop&q=80",
+    category: "Sides",
+    ingredients: ["Hand-Cut Potatoes", "Roasted Garlic Butter", "Fresh Parsley & Cilantro", "Sea Salt Flakes"],
+    tags: ["Legendary Side", "Garlicky", "Crispy"],
+    badge: "Mouth-Watering",
+    calories: 390
+  },
+  {
+    id: "sd2",
+    name: "Butter & Garlic Naan Trio",
+    description: "The ultimate bread pairing for your curries. Fresh tandoor-baked flatbreads brushed generously with salted butter and crushed garlic.",
+    priceMin: 200,
+    priceMax: 350,
+    prices: { Small: 200, Medium: 280, Large: 350 },
+    image: "https://images.unsplash.com/photo-1533777857889-4be7c70b33f7?w=800&auto=format&fit=crop&q=80",
+    category: "Sides",
+    ingredients: ["Tandoor Flatbread", "Melted Ghee Butter", "Fresh Minced Garlic", "Coriander Leaves"],
+    tags: ["Bread Pairing", "Fluffy"],
+    calories: 290
+  }
+];
+
+export const defaultInstagramPosts: InstagramPost[] = [
+  {
+    id: "ig-1",
+    imageUrl: "https://images.unsplash.com/photo-1626132647523-66f5bf380027?w=500&auto=format&fit=crop&q=80",
+    likes: 1245,
+    comments: 48,
+    caption: "Sizzling hot, smoky goodness! Our legendary Chicken Sizzler has Kitale talking. 🍗🔥 #sizzler #foodie #kitale #megabytes",
+    url: "https://instagram.com"
+  },
+  {
+    id: "ig-2",
+    imageUrl: "https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=500&auto=format&fit=crop&q=80",
+    likes: 984,
+    comments: 32,
+    caption: "Creamy, rich Palak Paneer paired with hot garlic naan bread is the perfect serene dinner plan. 🥬🍛 #indian #paneer #megabytes",
+    url: "https://instagram.com"
+  },
+  {
+    id: "ig-3",
+    imageUrl: "https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=500&auto=format&fit=crop&q=80",
+    likes: 1530,
+    comments: 76,
+    caption: "Golden, crispy hand-cut chips tossed in garlic-herb butter. Simply mouth-watering! 🧄🍟 #garlicchips #kitale #swahili",
+    url: "https://instagram.com"
+  },
+  {
+    id: "ig-4",
+    imageUrl: "https://images.unsplash.com/photo-1567153051010-b9894e77242c?w=500&auto=format&fit=crop&q=80",
+    likes: 2110,
+    comments: 112,
+    caption: "Aromatic, spice-infused Swahili Pilau cooked with love. Experience authentic hospitality today. 🌾🍛 #pilau #swahili #kenya",
+    url: "https://instagram.com"
+  }
+];
+
+export const defaultContactData: ContactData = {
+  address: "2925 Mak Asembo Street, Kitale, Kenya",
+  phone: "+254 714 069599",
+  email: "hello@megabyteskitale.com",
+  website: "www.megabyteskitale.com",
+  hoursWeekdays: "8:00 AM — 10:00 PM",
+  hoursWeekends: "9:00 AM — 11:00 PM",
+  whatsapp: "+254 714 069599",
+  mapsUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.1764619717544!2d35.0048633!3d1.011666!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMcKwMDAnNDIuMCJOIDM1wrAwMCcxNy41IkU!5e0!3m2!1sen!2ske!4v1620000000000"
+};
+
+export const defaultFooterData: FooterData = {
+  logoText: "MEGA BYTES",
+  description: "Bringing the premium culinary fusion of Swahili heritage, spiced Indian delicacies, and sizzled Chinese standard into Trans-Nzoia county.",
+  copyright: "© 2026 Mega Bytes Restaurant. All Rights Reserved."
+};
+
+export const defaultEvents: RestaurantEvent[] = [
+  {
+    id: "ev1",
+    title: "Swahili Cultural Night",
+    date: "Every Friday, 7:00 PM",
+    description: "Enjoy authentic Swahili Biryani and live traditional Taarab music in our beautiful garden.",
+    image: "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=800&auto=format&fit=crop&q=80",
+    price: "1500"
+  },
+  {
+    id: "ev2",
+    title: "Indian Sizzling Buffet",
+    date: "Saturdays 12:00 PM - 4:00 PM",
+    description: "An unlimited culinary feast featuring butter chicken, paneer, and our legendary sizzlers.",
+    image: "https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?w=800&auto=format&fit=crop&q=80",
+    price: "2000"
+  }
+];
+
+export const defaultTestimonials: Testimonial[] = [
+  {
+    id: "test1",
+    name: "Abdi Ibrahim",
+    role: "Local Diner",
+    comment: "The Swahili Beef Pilau is incredibly authentic, just like what you get at the coast. Warm staff and a stunning serene seating area!",
+    rating: 5,
+    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&auto=format&fit=crop&q=80"
+  },
+  {
+    id: "test2",
+    name: "Sophia Patel",
+    role: "Visitor from Nairobi",
+    comment: "Unbelievable fusion concept. The Mega Chicken Sizzler is the absolute best sizzler in Western Kenya. Impeccable presentation and flavor.",
+    rating: 5,
+    avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&auto=format&fit=crop&q=80"
+  }
+];
+
+export const defaultSettings: SystemSettings = {
+  siteName: "Mega Bytes Restaurant",
+  currency: "KSh",
+  taxRate: 16,
+  enableReservations: true
+};
+
+export const defaultSeo: SEOSettings = {
+  metaTitle: "Mega Bytes - Premium Restaurant in Kitale",
+  metaDescription: "The best Swahili, Indian, and Chinese fusion kitchen in Trans-Nzoia. Experience our sizzling specialities today.",
+  metaKeywords: "Restaurant, Kitale, Swahili food, Indian curry, Chinese sizzlers, food delivery"
+};
